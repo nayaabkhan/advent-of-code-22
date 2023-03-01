@@ -93,4 +93,5 @@ fn main() {
     }
 
     println!("{}", score);
+    assert!(score == 13693);
 }
