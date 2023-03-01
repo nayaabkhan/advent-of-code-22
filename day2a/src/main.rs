@@ -15,7 +15,7 @@ enum RoundResult {
 }
 
 impl Hand {
-    fn points(self: &Self) -> u32 {
+    fn points(&self) -> u32 {
         match self {
             Hand::Rock => 1,
             Hand::Paper => 2,
@@ -23,7 +23,7 @@ impl Hand {
         }
     }
 
-    fn against(self: &Self, opponent: &Hand) -> RoundResult {
+    fn against(&self, opponent: &Hand) -> RoundResult {
         match self {
             Hand::Rock => match opponent {
                 Hand::Rock => RoundResult::Tie,
@@ -67,7 +67,7 @@ fn main() {
     for round in rounds {
         let round = round.unwrap();
 
-        let index_of_space = round.find(" ").unwrap();
+        let index_of_space = round.find(' ').unwrap();
         let (elf_hand, my_hand) = round.split_at(index_of_space);
 
         let elf_hand: Hand = elf_hand.trim().parse().unwrap();
