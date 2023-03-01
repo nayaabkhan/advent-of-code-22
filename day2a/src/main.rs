@@ -1,4 +1,3 @@
-use std::io;
 use std::str::FromStr;
 
 #[derive(Debug, PartialEq)]
@@ -62,11 +61,9 @@ impl FromStr for Hand {
 
 fn main() {
     let mut score = 0;
-    let rounds = io::stdin().lines();
+    let rounds = include_str!("../input.txt").lines();
 
     for round in rounds {
-        let round = round.unwrap();
-
         let index_of_space = round.find(' ').unwrap();
         let (elf_hand, my_hand) = round.split_at(index_of_space);
 

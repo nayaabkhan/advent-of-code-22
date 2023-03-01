@@ -1,21 +1,10 @@
-use std::io;
-
 fn main() {
     let mut calories: Vec<u32> = Vec::new();
     let mut current_elf = 0;
 
-    let lines = io::stdin().lines();
+    let lines = include_str!("../input.txt").lines();
 
-    for line in lines {
-        let calorie = match line {
-            Ok(c) => c,
-            Err(_) => {
-                println!("Cannot read line, skipping...");
-
-                String::from("")
-            }
-        };
-
+    for calorie in lines {
         if calorie.trim().is_empty() {
             current_elf += 1;
             calories.push(0);

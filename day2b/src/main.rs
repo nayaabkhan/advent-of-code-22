@@ -1,4 +1,4 @@
-use std::{io, str::FromStr};
+use std::str::FromStr;
 
 #[derive(Debug, PartialEq)]
 enum Hand {
@@ -71,11 +71,9 @@ impl FromStr for RoundResult {
 
 fn main() {
     let mut score = 0;
-    let lines = io::stdin().lines();
+    let lines = include_str!("../input.txt").lines();
 
     for line in lines {
-        let line = line.unwrap();
-
         let index_of_space = line.find(' ').unwrap();
         let (elf_hand, desired_result) = line.split_at(index_of_space);
 
