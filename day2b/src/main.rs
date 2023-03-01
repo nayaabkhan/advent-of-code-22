@@ -21,7 +21,7 @@ impl FromStr for Hand {
 }
 
 impl Hand {
-    fn points(self: &Self) -> u32 {
+    fn points(&self) -> u32 {
         match self {
             Hand::Rock => 1,
             Hand::Paper => 2,
@@ -76,7 +76,7 @@ fn main() {
     for line in lines {
         let line = line.unwrap();
 
-        let index_of_space = line.find(" ").unwrap();
+        let index_of_space = line.find(' ').unwrap();
         let (elf_hand, desired_result) = line.split_at(index_of_space);
 
         let elf_hand: Hand = elf_hand.trim().parse().unwrap();
