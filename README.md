@@ -8,5 +8,5 @@ Each project contains the input.txt for the given challenge.
 
 ```sh
 cd day1a
-cargo run < input.txt
+cargo run
 ```
