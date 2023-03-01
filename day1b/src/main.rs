@@ -30,4 +30,5 @@ fn main() {
     let top_3 = calories[0] + calories[1] + calories[2];
 
     println!("{}", top_3);
+    assert!(top_3 == 207410);
 }
